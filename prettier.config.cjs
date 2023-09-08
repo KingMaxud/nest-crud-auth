@@ -6,9 +6,11 @@ module.exports = {
   singleQuote: true,
   tabWidth: 2,
   trailingComma: 'es5',
+  printWidth: 80,
   plugins: ['@ianvs/prettier-plugin-sort-imports'],
   importOrder: [
     '^(@nestjs/(.*)$)|^(@nestjs$)',
+    '^(typeorm/(.*)$)|^(typeorm$)',
     '<THIRD_PARTY_MODULES>',
     '',
     '^[./]',
