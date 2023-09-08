@@ -16,8 +16,7 @@ import { News } from './news.entity'
 export class NewsService {
   constructor(
     @InjectRepository(News)
-    private newsRepository: Repository<News>,
-    private usersService: UsersService
+    private newsRepository: Repository<News>
   ) {}
 
   async findAll(): Promise<News[]> {
@@ -52,7 +51,6 @@ export class NewsService {
       throw new NotFoundException(`News with ID ${newsId} not found`)
     }
 
-    console.log(existingNews)
     // Make sure the user is the author of the news
     if (existingNews.author.id !== user.id) {
       throw new UnauthorizedException(
